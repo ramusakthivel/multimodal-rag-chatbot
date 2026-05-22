@@ -24,12 +24,6 @@ def initialize_rag_system(mode="Strict RAG", index_name="multimodal-rag-index"):
     Connects to local ChromaDB and dynamically builds either a Strict or an Open/Guided RAG system
     based on the user's UI selection.
     """
-    if not os.path.exists(db_path):
-        raise FileNotFoundError(f"Vector database not found at {db_path}. Run vector_store.py first.")
-        
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
-    vector_db = Chroma(persist_directory=db_path, embedding_function=embeddings)
-    retriever = vector_db.as_retriever(search_kwargs={"k": 4})
     
     # --- DYNAMIC CONFIGURATION BASED ON USER SELECTION ---
     if mode == "Strict RAG":
