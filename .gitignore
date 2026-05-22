@@ -1,0 +1,11 @@
+# Virtual Environment
+rag_env/
+__pycache__/
+*.pyc
+
+# Local Database & Secrets
+.env
+database/chroma_db/
+
+# Extracted Media assets (optional, keeps git light)
+data/processed_assets/*
